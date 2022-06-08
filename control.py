@@ -1,7 +1,7 @@
 from datetime import datetime
 from time import sleep
 from typing import final
-from test import get_capture
+from capturing import get_capture
 import cv2
 from upload_vids import Uploads
 import threading
@@ -56,9 +56,9 @@ while True:
                 print('동영상 파일을 찾을 수 없습니다.')
             except ConnectionError:
                 print('통신 에러 발생')
-                sleep(2)
+                sleep(1)
             except:
                 print('영상 전송에 에러가 발생하였습니다.')
-                sleep(2) 
+                sleep(1) 
         finally:
             count += 1
