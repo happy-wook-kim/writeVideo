@@ -37,7 +37,7 @@ def get_capture(file_name:str):
                     # i += 1
                     pass
 
-                if cv2.waitKey(5) & 0xFF == ord('q'):
+                if cv2.waitKey(5) & 0xFF == 27:
                     break
                 
                 # 영상을 15분 기준으로 끊어서 저장한다.
