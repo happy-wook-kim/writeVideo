@@ -17,6 +17,7 @@ while True:
     # print(elapsed)
     
     if elapsed > 0.01:
+        # 스트리밍 녹화 시작 시간을 기준으로 년, 월, 일, 시간, 분, 초 데이터를 받는다.
         year = str(now.now().today().year)
         month = str(now.now().today().month).zfill(2)
         day = str(now.now().today().day).zfill(2)
@@ -24,6 +25,7 @@ while True:
         minute = str(now.now().today().minute).zfill(2)
         second = str(now.now().today().second).zfill(2)
         # file_name = str(now.now().today()).rsplit('.', 1)[0]
+        # 파일명을 원하는 형태로 만든다.
         file_name = year + "_" + month + "_" + day + "_" + hour + ":" + minute + ":" + second
         
         try:
@@ -46,9 +48,9 @@ while True:
             video = cv2.VideoCapture(name)
             
             # 서버로 영상 전송
-            a = Uploads(name, '')
+            upload = Uploads(name, '')
             try:
-                upload_thread = threading.Thread(a.upload_video(name))
+                upload_thread = threading.Thread(upload.upload_video(name))
                 upload_thread.start()
             except (FileNotFoundError):
                 print('동영상 파일을 찾을 수 없습니다.')
