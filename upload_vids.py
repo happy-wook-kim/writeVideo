@@ -5,6 +5,9 @@ from requests.sessions import Session
 
 # import test
 
+# server_url = "http://10.10.20.137:8000"
+server_url = "http://192.168.20.131:8000"
+
 class Uploads:
     def __init__(self, url, key):
         self.url = url
@@ -26,12 +29,12 @@ class Uploads:
 
         with Session() as session:
             connect = 3
-            read = 5
-            backoff_factor = 1
+            read = 3
+            backoff_factor = 0.3
             RETRY_AFTER_STATUS_CODES = (400, 403, 500, 503)
 
             retry = Retry(
-                total=(connect + read),
+                total=connect,
                 connect=connect,
                 read=read,
                 backoff_factor=backoff_factor,
