@@ -28,8 +28,8 @@ class Uploads:
         upload_file = {'files': file}
 
         with Session() as session:
-            connect = 3
-            read = 3
+            connect = 1
+            read = 1
             backoff_factor = 0.3
             RETRY_AFTER_STATUS_CODES = (400, 403, 500, 503)
 
