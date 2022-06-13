@@ -4,7 +4,7 @@ import datetime
 
 
 def get_capture(file_name:str):
-    url = 'rtmp://52.78.104.124:1935/live/cam2'
+    url = 'rtmp://52.78.104.124:1935/live/cam1'
     url2 = 'http://52.78.104.124:1935/vod/mp4:sample.mp4/playlist.m3u8'
 
     cap = cv2.VideoCapture(url)
@@ -37,6 +37,8 @@ def get_capture(file_name:str):
                     out.write(frame)
                     # out_15f.write(frame)
                     out_30f.write(frame)
+                
+                if count % 6 == 0:
                     print('time elapsed', elapsed.seconds)
 
                 if elapsed.seconds % 10 == 0 and elapsed.seconds > 0:
@@ -51,7 +53,7 @@ def get_capture(file_name:str):
                     break
 
         except:
-            pass
+            break
 
     print('녹화한 영상: ',name)
     cap.release()
