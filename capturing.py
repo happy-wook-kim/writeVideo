@@ -14,7 +14,8 @@ def get_capture(file_name:str):
     cam_numbering = 4;
 
     # cap = cv2.VideoCapture(url)
-    cap = cv2.VideoCapture(cam_location)
+    # cap = cv2.VideoCapture(cam_location)
+    cap = cv2.VideoCapture('nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink', cv2.CAP_GSTREAMER)
     # cap = cv2.VideoCapture(0)
 
     FOLDER = './video/cam'
