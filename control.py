@@ -43,10 +43,8 @@ while True:
 
             name = './video/cam1' + '_' + file_name + '.mp4'
             # name_15f = './video/cam1' + '_' + file_name + '_15f' + '.mp4'
-            name_30f = './video/cam1' + '_' + file_name + '_30f' + '.mp4'
-            
+            # name_30f = './video/cam1' + '_' + file_name + '_30f' + '.mp4'
             print('전송할 영상: ', name, "\n" , 'opencv 읽는 영상: ', name)
-            # video = cv2.VideoCapture(name)
             
             # 서버로 영상 전송
             upload = Uploads(name, '')
@@ -55,8 +53,8 @@ while True:
                 upload_thread.start()
                 # upload_thread_15f = threading.Thread(upload.upload_video(name_15f))
                 # upload_thread_15f.start()
-                upload_thread_30f = threading.Thread(upload.upload_video(name_30f))
-                upload_thread_30f.start()
+                # upload_thread_30f = threading.Thread(upload.upload_video(name_30f))
+                # upload_thread_30f.start()
             except (FileNotFoundError):
                 print('동영상 파일을 찾을 수 없습니다.')
             except ConnectionError:
