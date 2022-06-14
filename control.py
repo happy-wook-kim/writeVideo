@@ -28,7 +28,7 @@ while True:
         file_name = year + "_" + month + "_" + day + "_" + hour + ":" + minute + ":" + second
         try:
             # 스트리밍 영상 녹화 쓰레드
-            t = threading.Thread(get_capture(file_name), 0)
+            t = threading.Thread(get_capture(file_name))
             t.start()
             print('capture thread start')
         except:
