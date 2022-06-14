@@ -5,8 +5,8 @@ from requests.sessions import Session
 
 # import test
 
-# server_url = "http://10.10.20.137:8000"
-server_url = "http://192.168.20.131:8000"
+# server_url = "http://10.10.62.138:8000" # jinwook mac ip address (temporary) - cloud server 사용 예정
+server_url = "http://192.168.20.131:8000" # deep-learning pc ip address (temporary) - cloud server 사용 예정
 
 class Uploads:
     def __init__(self, url, key):
@@ -49,7 +49,7 @@ class Uploads:
 
             try:
                 # post 요청 수행
-                session.post(url='http://192.168.20.131:8000/uploadfiles', files = upload_file)
+                session.post(url=server_url + '/uploadfiles', files = upload_file)
             except:
                 print('업로드에 실패하였습니다.')
             else:  
