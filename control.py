@@ -1,6 +1,5 @@
 from datetime import datetime
 from time import sleep
-from typing import final
 from capturing import get_capture
 import cv2
 from upload_vids import Uploads
