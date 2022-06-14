@@ -3,23 +3,22 @@ import cv2
 import datetime
 
 
-def get_capture(file_name:str):
+def get_capture(file_name:str, cam_location:int):
+    # cam_location: jetson nano에 부착된 usb 위치에 따른 카메라 위치
+    
     # url = 'rtmp://52.78.104.124:1935/live/cam1'
     # url2 = 'http://52.78.104.124:1935/vod/mp4:sample.mp4/playlist.m3u8'
 
-    # jetson nano에 부착된 usb 위치에 따른 카메라 위치
-    cam_location = 2;
-    
     # adddai가 운영하는 카메라 인덱스
     cam_numbering = 4;
 
     # cap = cv2.VideoCapture(url)
-    # cap = cv2.VideoCapture(cam_location)
-    cap = cv2.VideoCapture('nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink', cv2.CAP_GSTREAMER)
+    cap = cv2.VideoCapture(cam_location)
+    # cap = cv2.VideoCapture('nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink', cv2.CAP_GSTREAMER)
     # cap = cv2.VideoCapture(0)
 
-    FOLDER = './video/cam'
-    WRITE_LOCATION = FOLDER + str(cam_numbering)
+    FOLDER = './video/'
+    WRITE_LOCATION = FOLDER + 'cam' + str(cam_numbering)
     
     name = WRITE_LOCATION + '_' + file_name + '.mp4'
     # name_15f = WRITE_LOCATION + '_' + file_name + '_15f' + '.mp4'
