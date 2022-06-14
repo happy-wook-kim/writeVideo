@@ -5,7 +5,6 @@ import datetime
 
 def get_capture(file_name:str):
     # url = 'rtmp://52.78.104.124:1935/live/cam1'
-    # url2 = 'http://52.78.104.124:1935/vod/mp4:sample.mp4/playlist.m3u8'    
 
     # cam_location: jetson nano에 부착된 usb 위치에 따른 카메라 위치
     # cam_numbering: adddai가 운영하는 카메라 인덱스
@@ -15,8 +14,6 @@ def get_capture(file_name:str):
     
     # cap = cv2.VideoCapture(url)
     cap = cv2.VideoCapture(cam_location)
-    # cap = cv2.VideoCapture('nvarguscamerasrc ! video/x-raw(memory:NVMM), width=1280, height=720, format=(string)NV12, framerate=(fraction)20/1 ! nvvidconv ! video/x-raw, format=(string)BGRx ! videoconvert ! video/x-raw, format=(string)BGR ! appsink', cv2.CAP_GSTREAMER)
-    # cap = cv2.VideoCapture(0)
 
     FOLDER = './video/'
     WRITE_LOCATION = FOLDER + 'cam' + str(cam_numbering)
@@ -51,10 +48,6 @@ def get_capture(file_name:str):
                 
                 if count % 6 == 0:
                     print('time elapsed', elapsed.seconds)
-
-                if elapsed.seconds % 10 == 0 and elapsed.seconds > 0:
-                    # i += 1
-                    pass
 
                 if cv2.waitKey(5) & 0xFF == 27:
                     break
